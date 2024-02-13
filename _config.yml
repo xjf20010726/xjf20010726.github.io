@@ -1,24 +1,24 @@
-title: Hanlin Cai
+title: Junfan Xue
 # tagline: Here is personal website of Hanlin Cai. Powered by Jekyll, based on the Minimal Mistakes theme.
 # description: Two roads diverged in woods, I took the one less traveled by.
 #Comment out url when working locally to resolve base urls correctly
-url: https://caihanlin.com
+url: https://xjf20010726.github.io
 
 # Owner/author information
 owner:
-  name: Hanlin Cai
-  avatar: hanlin.jpg
+  name: Junfan Xue
+  avatar: me.jpg
   # bio: Two roads diverged in woods, I took the one less traveled by.
-  email: hanlin.cai@ieee.org
-  cv: https://caihanlin.com/file/CV-HanlinCAI.pdf
+  email: M202310688@xs.ustb.edu.cn
+  cv: #个人简历路径
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
-  twitter: lancecai2002
-  github: GuangLun2000
-  linkedin: hanlincai
-  scholar: https://scholar.google.com/citations?user=8igSoWgAAAAJ
-  bilibili: 594030035
-  researchgate: https://www.researchgate.net/profile/Hanlin-Cai
-  zhihu: https://www.zhihu.com/people/chlire
+  twitter: JunfanXue
+  github: xjf20010726
+  linkedin: #LinkedIn用户名
+  scholar: #谷歌学术用户名
+  bilibili: 241399928
+  researchgate: #ResearchGate路径
+  zhihu: https://www.zhihu.com/people/xjf-45-78
   # facebook: caihanlin2002
   # instagram: lancecai2002
   # lastfm:
