@@ -45,7 +45,3 @@ example:
 <br>
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I hope the next time I update my homepage, I can see a new news!😁 </blockquote>
-
-<!-->
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<!-->
