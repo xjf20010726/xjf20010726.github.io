@@ -8,7 +8,7 @@ title: Blogs
 
 ### 2024
 
-- Coming soon!
+- [Swin Transformer论文阅读笔记](https://xjf20010726.github.io/blogs/swin)
 
 
 <br>
