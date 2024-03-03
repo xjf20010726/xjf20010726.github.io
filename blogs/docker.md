@@ -4,12 +4,14 @@ permalink: /blogs/docker/index.html
 title: docker
 ---
 > 更新时间：2024/03/03
+
 ### 在Ubuntu上配置openEuler的docker镜像
 
 #### 获取镜像
 
 从 [Docker 镜像仓库](https://hub.docker.com/)获取openEuler镜像其命令格式为：
-```
+
+```bash
 docker pull openeuler/openeuler:20.03
 ```
 
@@ -17,8 +19,10 @@ docker pull openeuler/openeuler:20.03
 ![alt text](docker.assets/1709449681567.png)
 
 #### 基于镜像启动容器
+
 根据如下命令新建并启动openEuler容器
-```
+
+```bash
 docker run --name MyopenEuler -d -t -i openeuler/openeuler:20.03 /bin/bash
 ```
 
@@ -30,7 +34,7 @@ docker run --name MyopenEuler -d -t -i openeuler/openeuler:20.03 /bin/bash
 
 当容器启动后，可以使用如下命令进入容器：
 
-```
+```bash
 docker exec -it MyopenEuler bash
 ```
 
@@ -61,7 +65,7 @@ docker exec -it MyopenEuler bash
 
 根据如下命令，创建.ssh文件夹
 
-```
+```bash
 [root@fb5aff2634ca ~]# cd
 [root@fb5aff2634ca ~]# mkdir .ssh
 ```
@@ -70,18 +74,18 @@ docker exec -it MyopenEuler bash
 
 第1处修改:
 
-```
+```bash
 #PubkeyAuthentication yes
-修改为（去掉注释符号#）
+#修改为（去掉注释符号#）
 PubkeyAuthentication yes
 ```
 
 第2处修改:
 
-```
+```bash
 #AllowAgentForwarding yes
 #AllowTcpForwarding yes
-修改为（去掉注释符号#）
+#修改为（去掉注释符号#）
 AllowAgentForwarding yes
 AllowTcpForwarding yes
 ```
@@ -89,7 +93,7 @@ AllowTcpForwarding yes
 然后使用命令``systemctl restart sshd.service``重启ssh服务。
 
 使用如下命令,可以实现ssh无密码登录
-```
+```bash
 [root@fb5aff2634ca ~]# cd .ssh/
 [root@fb5aff2634ca .ssh]# vi id_ed25519.pub
 [root@fb5aff2634ca .ssh]# cat id_ed25519.pub >>authorized_keys
@@ -121,7 +125,7 @@ authorized_keys  id_ed25519.pub
 解决方案如下：
 
 网上查询发现docker的容器一旦生成，就没有一个命令可以直接修改或者添加端口映射，因此只能创建一个新的容器，此时的命令如下：
-```
+```bash
 docker run --name MyopenEuler -p 9876:22 -d -t -i openeuler/openeuler:20.03 /bin/bash
 ```
 执行这条命令后，再次使用``docker container ls``可以发现此时port显示出了端口映射。
@@ -132,7 +136,7 @@ docker run --name MyopenEuler -p 9876:22 -d -t -i openeuler/openeuler:20.03 /bin
 
 使用如下命令安装passewd
 
-```
+```bash
 yum install passwd
 ```
 ![alt text](docker.assets/1709376601391.png)
@@ -146,7 +150,7 @@ yum install passwd
 解决方案如下：
 
 首先下载python2
-```
+```bash
 yum install python27
 ```
 然后从 [GitHub](https://github.com/gdraheim/docker-systemctl-replacement/blob/master/files/docker/systemctl.py)获取可以替代systemctl的文件，将该文件放入`/usr/bin/systemctl`中。
@@ -160,11 +164,12 @@ yum install python27
 使用``sshd -t``命令检查，发现问题原因是：
 ![alt text](docker.assets/1709450569105.png)
 解决这个问题，可以使用如下命令：
-```
+```bash
 ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key
 ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key
 ```
+
 ![alt text](docker.assets/1709450796141.png)
 使用上述命令后，可以发现问题4已经解决，当前状态已经是running了。
 ![alt text](docker.assets/1709450857168.png)
