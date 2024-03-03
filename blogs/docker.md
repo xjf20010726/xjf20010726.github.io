@@ -30,7 +30,7 @@ docker run --name MyopenEuler -d -t -i openeuler/openeuler:20.03 /bin/bash
 
 <br>启动容器后，可以使用命令``docker container ls``查看启动的容器。
 
-![alt text](docker.assets/1709449749704.png)
+<br>![alt text](docker.assets/1709449749704.png)
 
 <br>当容器启动后，可以使用如下命令进入容器：
 
@@ -41,24 +41,27 @@ docker exec -it MyopenEuler bash
 <br>只用 -i 参数时，由于没有分配伪终端，界面没有我们熟悉的 Linux 命令提示符，但命令执行结果仍然可以返回。
 当 -i -t 参数一起使用时，则可以看到我们熟悉的 Linux 命令提示符。
 
-![alt text](docker.assets/1709351502231.png)
+<br>![alt text](docker.assets/1709351502231.png)
 
 #### 使用MobaXterm在Win11上远程连接服务器创建的openEuler容器
 
 **1.为openEuler容器的root用户创建密码**
 
 <br>使用命令``passwd``修改/创建root用户的密码。
-![alt text](docker.assets/1709376681948.png)
+
+<br>![alt text](docker.assets/1709376681948.png)
 
 <br>**2.为openEuler容器安装ssh服务**
 
 <br>使用命令``yum -y install openssh-server``安装ssh服务，安装结果如下：
-![alt text](docker.assets/1709377494806.png)
+
+<br>![alt text](docker.assets/1709377494806.png)
 
 <br>**3.在宿主机上通过ssh连接docker容器**
 
 <br>使用命令``ssh root@0.0.0.0 -p 9876``通过宿主机连接docker容器，结果如下：
-![alt text](docker.assets/1709451418780.png)
+
+<br>![alt text](docker.assets/1709451418780.png)
 
 <br>**4.完成无密码ssh连接**
 
@@ -105,17 +108,17 @@ authorized_keys  id_ed25519.pub
 
 <br>登录结果如下：
 
-![alt text](docker.assets/1709455603240.jpg)
+<br>![alt text](docker.assets/1709455603240.jpg)
 
 <br>**5.使用MobeXterm连接服务器的docker容器**
 
 <br>在MobeXterm上进行如下配置
 
-![alt text](docker.assets/1709455450949.jpg)
+<br>![alt text](docker.assets/1709455450949.jpg)
 
 <br>之后就可以成功通过MobeXterm进行连接了。
 
-![alt text](docker.assets/1709455657173.png)
+<br>![alt text](docker.assets/1709455657173.png)
 
 ### 遇到的问题与解决方案
 
@@ -139,12 +142,12 @@ docker run --name MyopenEuler -p 9876:22 -d -t -i openeuler/openeuler:20.03 /bin
 yum install passwd
 ```
 
-![alt text](docker.assets/1709376601391.png)
+<br>![alt text](docker.assets/1709376601391.png)
 
 
 <br>3.docker容器更新sshd_config报错
 
-![alt text](docker.assets/1709378610025.png)
+<br>![alt text](docker.assets/1709378610025.png)
 
 <br>根据图片上的描述，可以发现应该是systemctl命令无法在docker中正常使用。
 
@@ -162,13 +165,14 @@ yum install python27
 
 <br>4.当可以使用systemctl命令之后，发现使用命令``systemctl status sshd.service``之后显示ssh的Activate状态是false。
 
-![alt text](docker.assets/1709450483756.png)
+<br>![alt text](docker.assets/1709450483756.png)
 
 <br>解决方案如下：
 
 <br>使用``sshd -t``命令检查，发现问题原因是：
 
-![alt text](docker.assets/1709450569105.png)
+<br>![alt text](docker.assets/1709450569105.png)
+
 <br>解决这个问题，可以使用如下命令：
 ```bash
 ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
@@ -176,7 +180,8 @@ ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key
 ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key
 ```
 
-![alt text](docker.assets/1709450796141.png)
+<br>![alt text](docker.assets/1709450796141.png)
+
 <br>使用上述命令后，可以发现问题4已经解决，当前状态已经是running了。
 
-![alt text](docker.assets/1709450857168.png)
+<br>![alt text](docker.assets/1709450857168.png)
