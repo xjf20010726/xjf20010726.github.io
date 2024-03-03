@@ -8,8 +8,8 @@ title: Blogs
 
 ### 2024
 
-- [Swin Transformer论文阅读笔记](https://xjf20010726.github.io/blogs/swin)
-
+- [Swin Transformer论文阅读笔记（持续更新中）](https://xjf20010726.github.io/blogs/swin)
+- [在Ubuntu上配置openEuler的docker镜像](https://xjf20010726.github.io/blogs/docker)
 
 <br>
 
