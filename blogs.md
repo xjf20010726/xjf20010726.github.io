@@ -10,6 +10,7 @@ title: Blogs
 
 - [Swin Transformer论文阅读笔记（持续更新中）](https://xjf20010726.github.io/blogs/swin)
 - [在Ubuntu上配置openEuler的docker镜像](https://xjf20010726.github.io/blogs/docker)
+- [在Ubuntu上配置centos7的docker镜像](https://xjf20010726.github.io/blogs/docker_centos)
 
 <br>
 

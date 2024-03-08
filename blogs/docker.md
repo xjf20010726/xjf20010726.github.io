@@ -3,7 +3,7 @@ layout: page
 permalink: /blogs/docker/index.html
 title: docker
 ---
-> 更新时间：2024/03/03
+> 更新时间：2024/03/08
 
 ### 在Ubuntu上配置openEuler的docker镜像
 
@@ -35,13 +35,13 @@ docker run --name MyopenEuler -d -t -i openeuler/openeuler:20.03 /bin/bash
 <br>当容器启动后，可以使用如下命令进入容器：
 
 ```bash
-docker exec -it MyopenEuler bash
+docker exec -it MyopenEuler /bin/bash
 ```
 
 <br>只用 -i 参数时，由于没有分配伪终端，界面没有我们熟悉的 Linux 命令提示符，但命令执行结果仍然可以返回。
 当 -i -t 参数一起使用时，则可以看到我们熟悉的 Linux 命令提示符。
 
-<br>![alt text](docker.assets/1709351502231.png)
+<br>![alt text](docker.assets/1709904715947.png)
 
 #### 使用MobaXterm在Win11上远程连接服务器创建的openEuler容器
 
@@ -108,7 +108,7 @@ authorized_keys  id_ed25519.pub
 
 <br>登录结果如下：
 
-<br>![alt text](docker.assets/1709455603240.jpg)
+<br>![alt text](docker.assets/1709909933458.jpg)
 
 <br>**5.使用MobeXterm连接服务器的docker容器**
 
@@ -118,7 +118,7 @@ authorized_keys  id_ed25519.pub
 
 <br>之后就可以成功通过MobeXterm进行连接了。
 
-<br>![alt text](docker.assets/1709455657173.png)
+<br>![alt text](docker.assets/1709910009661.jpg)
 
 ### 遇到的问题与解决方案
 
@@ -161,7 +161,7 @@ yum install python27
 
 <br>然后从 [GitHub](https://github.com/gdraheim/docker-systemctl-replacement/blob/master/files/docker/systemctl.py)获取可以替代systemctl的文件，将该文件放入`/usr/bin/systemctl`中。
 
-<br>最后，使用`chmod a+x /bin/systemctl`命令，可以解决问题3中service和systemctl无法更新config文件的问题。
+<br>最后，使用`chmod a+x /bin/systemctl`命令，可以解决问题中service和systemctl无法更新config文件的问题。
 
 <br>4.当可以使用systemctl命令之后，发现使用命令``systemctl status sshd.service``之后显示ssh的Activate状态是false。
 
