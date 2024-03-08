@@ -59,6 +59,7 @@ docker exec -it MyCentos /bin/bash
 - 从 [GitHub](https://github.com/gdraheim/docker-systemctl-replacement/blob/master/files/docker/systemctl.py)获取可以替代systemctl的文件，将该文件放入`/usr/bin/systemctl`中。
 - 使用`chmod a+x /bin/systemctl`命令，可以解决问题中service和systemctl无法更新config文件的问题。
 - 使用命令`systemctl status sshd.service`确认systemctl文件已经可以使用了。
+
 <br>![alt text](docker.assets/1709905936108.png)
 
 <br>使用下面三条命令，然后使用`systemctl restart sshd.service`激活ssh：
