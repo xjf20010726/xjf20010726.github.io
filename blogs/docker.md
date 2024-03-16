@@ -3,7 +3,7 @@ layout: page
 permalink: /blogs/docker/index.html
 title: docker
 ---
-> 更新时间：2024/03/08
+> 更新时间：2024/03/15
 
 ### 在Ubuntu上配置openEuler的docker镜像
 
@@ -185,3 +185,4 @@ ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key
 <br>使用上述命令后，可以发现问题4已经解决，当前状态已经是running了。
 
 <br>![alt text](docker.assets/1709450857168.png)
+
